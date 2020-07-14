@@ -1,0 +1,103 @@
+procédures:
+
+CREATE PROCEDURE "DBA"."insertTemps"(
+IN "name" char(15),
+IN firstname char(15),
+IN naissance integer,
+IN origine varchar(15),
+IN circuit varchar(15),
+IN numero integer,
+IN "date" DATE,
+IN temps INTEGER 
+)
+BEGIN
+CALL sa_set_http_header('Access-Control-Allow-Origin', '*');
+CALL sa_set_http_header('Content-Type','text/json');
+
+insert into pilote ( idPilo, nom, prenom, nationalité, annéeNaissance)
+VALUES ((select idPilote()), "name", firstname, origine, naissance);
+
+insert into temps (idTemps, idPilo,chrono, idCircuit, idVehicule)
+VALUES  ((select getIdTemps()), (select MAX(idPilo) from pilote)  ,temps, circuit, numero);
+    
+END
+------------------------
+CREATE PROCEDURE "DBA"."http_getPage"( IN  url CHAR (255) )
+    RESULT( html LONG  VARCHAR  )
+BEGIN
+    CALL sa_set_http_header('Content-Type','text/html');
+	SELECT xp_read_file(getPath()|| url || '.html'); //Renvoyer la page
+END
+
+
+------------------------
+
+CREATE PROCEDURE "DBA"."http_getJS"( IN url CHAR (255) )
+    RESULT( js LONG  VARCHAR  )
+BEGIN
+	CALL  sa_set_http_header('Content-Type', 'text/javascript');
+    SELECT xp_read_file(getPath()||'JS\'|| url);
+END
+-------------------------------
+
+CREATE PROCEDURE "DBA"."http_getIMG"( IN url CHAR (255) )
+    RESULT( img LONG BINARY  ) 
+BEGIN
+	CALL sa_set_http_header('Content-Type','image/png');
+    SELECT xp_read_file(getPath() || 'IMG\' || url);
+END
+
+---------------------------------
+CREATE PROCEDURE "DBA"."http_getCSS"( IN url CHAR (255) )
+    RESULT( css LONG  VARCHAR ) 
+BEGIN
+	CALL sa_set_http_header('Content-Type','text/css');
+    SELECT xp_read_file(getPath()||'CSS\' ||url)
+END
+
+----------------------------------
+
+fonctions:
+
+
+CREATE FUNCTION "DBA"."idPilote"( )
+RETURNS CHAR(15)
+DETERMINISTIC
+BEGIN
+	DECLARE idPilote CHAR(10);
+     set idPilote = (SELECT 'P_000'
+    +string((select count()+1 from pilote)));
+	RETURN idpilote;
+END
+-------------------------------------
+
+CREATE FUNCTION "DBA"."getPath"()
+RETURNS LONG VARCHAR 
+deterministic
+BEGIN
+    DECLARE dbPath LONG VARCHAR ;
+    DECLARE dbName LONG VARCHAR ;
+    SET  dbPath= (SELECT  db_property('file')); -- path + nom de la db
+    SET  dbName=(SELECT db_property('name'))+'.db'; -- Nom de la db
+    SET dbPath= left(dbPath,length(dbPath)-length(dbName)); -- Path seul
+    RETURN dbPath;
+END
+
+-------------------------------------
+CREATE FUNCTION "DBA"."getIdTemps"( )
+RETURNS CHAR(10)
+DETERMINISTIC
+BEGIN
+	DECLARE idTemps CHAR(10);
+     set idTemps = (SELECT 'T_000'
+    +string((select count()+1 from temps)));
+	RETURN idTemps;
+END
+
+-----------------------------------------
+
+
+
+
+
+
