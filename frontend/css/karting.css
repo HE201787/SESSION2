@@ -1,0 +1,29 @@
+h1 {
+    text-align : center;
+    color : #4682B4;
+    font-family: 'Molengo', Georgia, Times, serif;
+}
+
+h2 {
+    text-align : center;
+    color : #4682B4;
+    font-family: 'Molengo', Georgia, Times, serif;
+}
+
+body {
+    background-color : #f1f0ee;
+
+}
+
+#tableauRecords {
+
+    background-color : #FFEBCD;
+    width : 100%;
+    border : solid grey 10px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+
+}
