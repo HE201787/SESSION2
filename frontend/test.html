@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CHRONO</title>
+    <script src="js/circuit.js"></script>
+    <link href ="css/karting.css" rel="stylesheet">
+</head>
+<body id="acceuil" onload="initPage()">
+
+		<a href="http://localhost/page?url=karting">
+
+			<div class="nav">
+
+				<h1>CHRONO</h1>
+				<h2>tout savoir sur les circuits</h2>
+
+			</div>
+		</a>
+
+	<div>
+		<nav class='topNav'>
+			<a href= "http://localhost/page?url=karting"> accueil </a>	
+			<a href= "http://localhost/page?url=test"> circuits </a>
+			<a href= "http://localhost/page?url=voiture"> voitures </a>
+			<a href= "http://localhost/page?url=tarifs"> tarifs </a>
+		</nav>
+
+	</div>
+
+	<br><br>
+
+	<div id="circuitPhoto">
+			
+			
+	</div>
+		
+
+	<div id="infoCircuit">
+		<h3>information sur les circuits :</h3>
+
+		<form id="formCircuit">
+			<fieldset>
+			    
+			    <label for="infoCircuit">circuit :</label>
+				<select name="circuit" id="circuit">
+				    <option value='belgique'>belgique</option>
+				    <option value='france'>france</option>
+				    <option value='angleterre'>angleterre</option>
+				    <option value='hongrie'>hongrie</option>
+				    <option value='autriche'>autriche</option>
+				</select>
+				<input type="submit" value="Afficher les informations" id="afficherInfo">
+			</fieldset>
+
+		</form> 
+
+	
+		<br> <br>
+			
+		<div id="affichageCircuit">
+			
+		</div>
+
+			
+	</div>
+
+
+	<div id="circuitTab">
+			
+			
+	</div>
+
+		
+</body>
+
+<footer>
+	<nav class='downNav'>
+		<a href= "http://localhost/page?url=karting"> accueil </a>	
+		<a href= "http://localhost/page?url=test"> circuits </a>	
+		<a href= "http://localhost/page?url=voiture"> voitures </a>
+		<a href= "http://localhost/page?url=tarifs"> tarifs </a>
+
+
+	
+		<div class='downLogo'>
+			marques partenaires:<br>
+			<img class='logoFooter' src="img/ferrariLogo.jpg">
+			<img class='logoFooter' src="img/mercedesLogo.jpg">
+			<img class='logoFooter' src="img/mclarenLogo.png">
+			<img class='logoFooter' src="img/renaultLogo.jpg">
+			<img class='logoFooter' src="img/haasLogo.jpg">
+			<img class='logoFooter' src="img/williamsLogo.jpg">
+
+		</div>
+	</nav>
+
+</footer>
+</html>

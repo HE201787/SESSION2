@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CHRONO</title>
+    <script src="js/karting.js"></script>
+    <link href ="css/karting.css" rel="stylesheet">
+</head>
+<body id="acceuil" onload="initPage()">
+
+
+	<div class="nav">
+		<a href="http://localhost/page?url=karting">
+
+			<h1>CHRONO</h1>
+			<h2>comparez vous aux meilleurs pilotes</h2>
+		</a>
+	</div>
+
+	<div>
+		<nav class='topNav'>
+			<a href= "http://localhost/page?url=karting"> accueil </a>	
+			<a href= "http://localhost/page?url=test"> circuits </a>	
+			<a href= "http://localhost/page?url=voiture"> voitures </a>
+			<a href= "http://localhost/page?url=tarifs"> tarifs </a>
+		</nav>
+	</div>
+	
+	<br><br>
+
+	<div>
+		<img class="piste" src="img/pageAcceuil.jpg" alt ="circuit">		
+	</div>
+
+	<div id="piloteRecord">
+		<form id="formRecherche">
+			<fieldset><legend><h3>consultez les records établis</h3></legend>
+			    <label for="circuit">circuit :</label>
+					<select name="circuit" id="circuit">
+					    <option value='belgique'>belgique</option>
+					    <option value='france'>france</option>
+					    <option value='angleterre'>angleterre</option>
+					    <option value='hongrie'>hongrie</option>
+					    <option value='autriche'>autriche</option>
+					</select>
+
+				<label for="categorie">categorie :</label>
+				    <select id="categorie" name="categorie">
+					    <option>formule1</option>
+					    <option>formule2</option>
+					    <option>formule3</option>	        
+					</select>
+
+					<br><br>
+
+				<input type="submit" value="Afficher les resultats" id="afficherResultats">
+			</fieldset>
+		</form> 
+
+		<br> <br>
+
+		<div id="affichage">
+			<section id="affichageResultats"></section>
+
+		</div>
+		
+	</div>
+
+	
+	<form class="formTemps" id="formTemps" onsubmit="myFunction(); ecartRequete()">
+		<fieldset>
+		<legend><h3>enregistrez votre meilleur temps au tour</h3></legend>
+			
+			<label for="name">Nom</label>
+        		<input type="text" name="name" id="name" required> <br> <br>
+
+    		<label for="prenom">Prenom</label>
+        		<input type="text" name="firstname" id="firstname" required> <br> <br>
+			
+			<label for="age">année de naissance</label>
+        		<input type="number" name="age" id="agePilote" min=1925 max=2010 required> <br> <br>
+
+        	<label for="nationalité">nationalité</label>
+        		<input type="text" name="nationalité" id="nationalité" required> <br> <br>
+
+        	<label for="circuit">circuit</label>
+        		<select type="text" name="circuit" id="circuit" required>
+        			<option value="1">belgique</option>
+        			<option value="2">france</option>
+        			<option value="3">angleterre</option>
+        			<option value="4">hongrie</option>
+        			<option value="5">autriche</option>
+        		</select> <br> <br>
+
+        	<label for="numeroVehicule"> Numero du véhicule </label>
+        		<input type="number"  name="kart" min=1 max=10 required>
+
+        <br><br>
+
+        	<label for="date">date</label>
+        		<input type="date" name="date" id="date" min="14-07-2020" required>
+
+        <br> <br>	
+
+        	<label for="temps">meilleur temps au tour:</label>
+        		<input type="number" name="minutes" id="minutes" min = 0 max= 59 required>min
+        		<input type="number" name="secondes" id="secondes" min = 0 max= 59 required>sec
+        		<input type="number" name="ms" id="ms" min = 0 max= 999 required>ms
+
+        <br> <br>
+
+        		<input type="submit"  value="Envoyer">	
+			
+		</fieldset>
+	</form>
+
+	<div id="zoneTexte">
+		
+	</div>
+
+	<div id="ecartTexte">
+		
+	</div>
+
+	
+</body>
+
+<footer>
+	<nav class='downNav'>
+		<a href= "http://localhost/page?url=karting"> accueil </a>	
+		<a href= "http://localhost/page?url=test"> circuits </a>	
+		<a href= "http://localhost/page?url=voiture"> voitures </a>
+		<a href= "http://localhost/page?url=tarifs"> tarifs </a>
+
+
+	
+		<div class='downLogo'>
+			marques partenaires: <br>
+			<img class='logoFooter' src="img/ferrariLogo.jpg">
+			<img class='logoFooter' src="img/mercedesLogo.jpg">
+			<img class='logoFooter' src="img/mclarenLogo.png">
+			<img class='logoFooter' src="img/renaultLogo.jpg">
+			<img class='logoFooter' src="img/haasLogo.jpg">
+			<img class='logoFooter' src="img/williamsLogo.jpg">
+		</div>
+	</nav>
+
+</footer>
+</html>

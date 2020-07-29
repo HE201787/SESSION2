@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>CHRONO</title>
+    <script src="js/tarifs.js"></script>
+    <link href ="css/karting.css" rel="stylesheet">
+</head>
+<body id="acceuil">
+
+	<a href="http://localhost/page?url=karting">
+
+		<div class="nav">
+
+		<h1>CHRONO</h1>
+		<h2>simulation de prix</h2>
+
+		</div>
+	</a>
+
+
+
+
+	<div>
+		<nav class='topNav'>
+			<a href= "http://localhost/page?url=karting"> accueil </a>	
+			<a href= "http://localhost/page?url=test"> circuits </a>
+			<a href= "http://localhost/page?url=voiture"> voitures </a>
+			<a href= "http://localhost/page?url=tarifs"> tarifs </a>
+		</nav>
+	</div>
+
+	<br><br>
+
+	<div>
+		<h3>avantages:</h3>
+		<p>à partir de 5 tours: -5% du prix pour le nombre de tours</p>
+		<p>à partir de 10 tours: -10% du prix pour le nombre de tours</p>
+		<p>à partir de 20 tours: -15% du prix pour le nombre de tours</p>
+		<p>à partir de 30 tours: -20% du prix pour le nombre de tours</p>
+	</div>
+
+	<form id="simulation">
+		<fieldset>
+		    
+		<label for="choixCircuit">circuit:</label>
+		<select name="circuit" id="circuit">
+		    <option value=80 >belgique</option>
+		    <option value=85 >france</option>
+		    <option value=90 >angleterre</option>
+		    <option value=75 >hongrie</option>
+		    <option value=70 >autriche</option>
+		</select>
+
+		<label for="nbTours"> Nombre de tours: </label>
+        	<input type="number" id="tours"  name="tours" min='1' max='50' required>
+
+        <br><br>
+
+        <label for="numeroVehicule"> véhicule: </label>
+        	<select name="voiture" id="selectVoiture">
+			    <option value=280 >ferarri</option>
+			    <option value=250 >mcLaren</option>
+			    <option value=200 >Haas</option>
+			    <option value=300 >Mercedes</option>
+			    <option value=190 >Williams</option>
+			    <option value=200 >Renault</option>
+			</select>
+
+        <br><br>
+
+		<input type="button" value="Afficher les informations" id="afficherInfo" onclick="simulation()">
+
+		</fieldset>
+	</form>  
+	<br> <br>
+
+	<div id="affichageCircuit">
+		
+	</div>
+
+	<div id="affichageTarifs">
+		
+	</div>
+
+	<div id="affichageTable">
+		
+	</div>
+
+
+	
+</body>
+	<br><br><br>
+
+<footer>
+	<nav class='downNav'>
+		<a href= "http://localhost/page?url=karting"> accueil </a>	
+		<a href= "http://localhost/page?url=test"> circuits </a>	
+		<a href= "http://localhost/page?url=voiture"> voitures </a>
+		<a href= "http://localhost/page?url=tarifs"> tarifs </a>
+
+	
+		<div class='downLogo'>
+			marques partenaires:<br>
+			<img class='logoFooter' src="img/ferrariLogo.jpg">
+			<img class='logoFooter' src="img/mercedesLogo.jpg">
+			<img class='logoFooter' src="img/mclarenLogo.png">
+			<img class='logoFooter' src="img/renaultLogo.jpg">
+			<img class='logoFooter' src="img/haasLogo.jpg">
+			<img class='logoFooter' src="img/williamsLogo.jpg">
+
+		</div>
+	</nav>
+
+</footer>
+</html>
