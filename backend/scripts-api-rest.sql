@@ -1,5 +1,5 @@
 
-ALTER PROCEDURE "DBA"."insertTemps"(
+CREATE PROCEDURE "DBA"."insertTemps"(
 IN "name" char(15),
 IN firstname char(15),
 IN naissance integer,
@@ -27,7 +27,11 @@ VALUES ((select getIdTemps()), (select idPilo from pilote where nom="name" and p
    ENDIF;
 END
 
-ALTER PROCEDURE "DBA"."proc_getRecords" (in lieu char(15), in cat varchar(10))
+
+
+
+
+CREATE PROCEDURE "DBA"."proc_getRecords" (in lieu char(15), in cat varchar(10))
 RESULT (chrono integer, localisation char(15), categorie varchar(15), marque varchar(10), motorisation varchar(20), recordman char(50))
 BEGIN 
     call sa_set_http_header('Content-Type', 'application/json');
@@ -49,11 +53,13 @@ BEGIN
     HAVING localisation = lieu and V.categorie = cat   
     
     ORDER BY T.chrono ASC ;
-
 END
 
 
-ALTER PROCEDURE "DBA"."proc_getCircuit" (in piste char(15))
+
+
+
+CREATE PROCEDURE "DBA"."proc_getCircuit" (in piste char(15))
 RESULT (idCircuit integer, localisation char(15), longueur varchar(15),record INTEGER, marque varchar(10), recordman varchar(50))
 BEGIN 
     call sa_set_http_header('Content-Type', 'application/json');
@@ -68,7 +74,10 @@ END
 
 
 
-ALTER PROCEDURE "DBA"."proc_Ecart" (in lieu INTEGER , in kart INTEGER )
+
+
+
+CREATE PROCEDURE "DBA"."proc_Ecart" (in lieu INTEGER , in kart INTEGER )
 RESULT (meilleur INTEGER )
 BEGIN 
     call sa_set_http_header('Content-Type', 'application/json');
@@ -80,7 +89,10 @@ END
 
 
 
-ALTER FUNCTION "DBA"."meilleurT"(lieu INTEGER , kart INTEGER  )
+
+
+
+CREATE FUNCTION "DBA"."meilleurT"(lieu INTEGER , kart INTEGER  )
 RETURNS int
 
 BEGIN
