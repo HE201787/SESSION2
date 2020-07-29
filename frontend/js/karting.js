@@ -114,13 +114,6 @@ function affichage(data){
 
 
 
-
-
-
-
-
-
-
 function ecartRequete(event){
    
     calculEcart(gId("formTemps").circuit.value, gId("formTemps").kart.value);
