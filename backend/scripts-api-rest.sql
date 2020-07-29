@@ -121,3 +121,16 @@ BEGIN
     +string((select count()+1 from pilote)));
 	RETURN idpilote;
 END
+
+
+
+
+CREATE FUNCTION "DBA"."getIdTemps"( )
+RETURNS CHAR(10)
+DETERMINISTIC
+BEGIN
+	DECLARE idTemps CHAR(10);
+     set idTemps = (SELECT 'T_'
+    +string((select count()+1 from temps)));
+	RETURN idTemps;
+END
