@@ -2,29 +2,45 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>CHRONO</title>
     <script src="js/karting.js"></script>
     <link href ="css/karting.css" rel="stylesheet">
 </head>
 <body id="acceuil" onload="initPage()">
 
-	<h1>CHRONO!!!!</h1>
-	<h2>comparez vous aux meilleurs pilotes!</h2>
 
-	<nav>
-		<a href= "http://localhost/page?url=test"> test</a>
+<div class="nav">
+	<a href="http://localhost/page?url=karting">
+
+	<h1>CHRONO</h1>
+	<h2>comparez vous aux meilleurs pilotes</h2>
+	</a>
+</div>
+
+<div>
+	<nav class='topNav'>
+		<a href= "http://localhost/page?url=karting"> accueil </a>	
+
+		<a href= "http://localhost/page?url=test"> circuits </a>	
+		<a href= "http://localhost/page?url=voiture"> voitures </a>
+				<a href= "http://localhost/page?url=tarifs"> tarifs </a>
+
+
+
 	</nav>
+</div>
+<br><br>
 
 	<div>
-		<img class="piste" src="img/Rustavi_raceway.png" alt ="circuit">
+		<img class="piste" src="img/pageAcceuil.jpg" alt ="circuit">
 		
 	</div>
 
 	<div id="piloteRecord">
-		<h3>record par circuit!!</h3>
+		
 
 				<form id="formRecherche">
-					<fieldset>
+					<fieldset><legend><h3>consultez les records établis</h3></legend>
 		    circuit :
 		<select name="circuit" id="circuit">
 		    <option value='belgique'>belgique</option>
@@ -55,9 +71,9 @@
 	</div>
 
 	
-	<form class="formTemps" id="formTemps" onsubmit="myFunction()">
+	<form class="formTemps" id="formTemps" onsubmit="myFunction(); ecartRequete()">
 			<fieldset>
-				<legend><h3>enregistrer votre meilleur temps au tour</h3></legend>
+				<legend><h3>enregistrez votre meilleur temps au tour</h3></legend>
 			<label for="name">Nom</label>
         		<input type="text" name="name" id="name" required> <br> <br>
 
@@ -105,11 +121,35 @@
 <div id="zoneTexte">
 	
 </div>
+<div id="ecartTexte">
+	
+</div>
+
 
 	
 </body>
 
 <footer>
+<nav class='downNav'>
+		<a href= "http://localhost/page?url=karting"> accueil </a>	
+
+		<a href= "http://localhost/page?url=test"> circuits </a>	
+		<a href= "http://localhost/page?url=voiture"> voitures </a>
+		<a href= "http://localhost/page?url=tarifs"> tarifs </a>
+
+
 	
+<div class='downLogo'>
+	marques partenaires:<br>
+	<img class='logoFooter' src="img/ferrariLogo.jpg">
+	<img class='logoFooter' src="img/mercedesLogo.jpg">
+	<img class='logoFooter' src="img/mclarenLogo.png">
+	<img class='logoFooter' src="img/renaultLogo.jpg">
+	<img class='logoFooter' src="img/haasLogo.jpg">
+	<img class='logoFooter' src="img/williamsLogo.jpg">
+
+</div>
+</nav>
+
 </footer>
 </html>
