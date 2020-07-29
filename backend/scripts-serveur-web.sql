@@ -9,7 +9,7 @@ END
 
 
 
-ALTER PROCEDURE "DBA"."http_getIMG"( IN url CHAR (255) )
+CREATE PROCEDURE "DBA"."http_getIMG"( IN url CHAR (255) )
     RESULT( img LONG BINARY  ) 
 BEGIN
 	CALL sa_set_http_header('Content-Type','image/png');
@@ -20,7 +20,7 @@ END
 
 
 
-ALTER PROCEDURE "DBA"."http_getJS"( IN url CHAR (255) )
+CREATE PROCEDURE "DBA"."http_getJS"( IN url CHAR (255) )
     RESULT( js LONG  VARCHAR  )
 BEGIN
 	CALL  sa_set_http_header('Content-Type', 'text/javascript');
@@ -29,7 +29,7 @@ END
 
 
 
-ALTER PROCEDURE "DBA"."http_getPage"( IN  url CHAR (255) )
+CREATE PROCEDURE "DBA"."http_getPage"( IN  url CHAR (255) )
     RESULT( html LONG  VARCHAR  )
 BEGIN
     CALL sa_set_http_header('Content-Type','text/html');
@@ -39,7 +39,7 @@ END
 
 
 
-ALTER FUNCTION "DBA"."getPath"()
+CREATE FUNCTION "DBA"."getPath"()
 RETURNS LONG VARCHAR 
 deterministic
 BEGIN
