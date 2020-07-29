@@ -106,3 +106,18 @@ BEGIN
     WHERE V.idVehicule = kart and C.idCircuit = lieu );
 	return meilleur;
 END
+
+
+
+
+
+
+CREATE FUNCTION "DBA"."idPilote"( )
+RETURNS CHAR(15)
+DETERMINISTIC
+BEGIN
+	DECLARE idPilote CHAR(10);
+     set idPilote = (SELECT 'P_'
+    +string((select count()+1 from pilote)));
+	RETURN idpilote;
+END
