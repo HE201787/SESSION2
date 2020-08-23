@@ -18,14 +18,20 @@ CREATE TABLE "DBA"."pilote" (
 	PRIMARY KEY ( "idPilo" ASC )
 ) IN "system";
 
+
 CREATE TABLE "DBA"."temps" (
 	"idTemps" CHAR(8) NOT NULL,
 	"idPilo" VARCHAR(8) NOT NULL,
 	"chrono" INTEGER NOT NULL,
 	"idCircuit" INTEGER NOT NULL,
 	"idVehicule" INTEGER NOT NULL,
-	PRIMARY KEY ( "idTemps" ASC )
+	PRIMARY KEY ( "idTemps" ASC ),
+    CONSTRAINT FOREIGN KEY idCircuit REFERENCES circuit(idCircuit),
+    CONSTRAINT FOREIGN KEY idVehicule REFERENCES vehicule(idVehicule),
+    CONSTRAINT FOREIGN KEY idPilo REFERENCES pilote(idPilo)
 ) IN "system";
+
+
 
 CREATE TABLE "DBA"."vehicule" (
 	"idVehicule" INTEGER NOT NULL,
