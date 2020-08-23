@@ -9,24 +9,25 @@ function initPage(){
     console.log("loaded");
 };
 
+//fonctions utiles
 
 function gId(id){
     return document.getElementById(id);
 };
 
-function dateMax(){
-	let currentDate = new Date();
-	gId("date").max = new Date().toISOString().split("T")[0];
+function dateMax(){                                                 //fixe la date maximum sur le formulaire;
+	let currentDate = new Date();                               // création de la variable contenant la date actuelle;
+	gId("date").max = new Date().toISOString().split("T")[0];   // changement du paramètre ".max" du formulaire;
 };
 
 
-function getTime(){
-	let minToMs = gId("minutes").value*60000;
-	let secToMs = gId("secondes").value*1000;
-	let ms = gId("ms").value;
-	let tempsMs = minToMs + secToMs + Number(ms);
-	console.log(tempsMs);
-	return tempsMs;
+function getTime(){                      //fonction qui récupère le temps insérées dans le formulaire pour le convertir en format milli-secondes;
+	let minToMs = gId("minutes").value*60000;        //récupère le champ "minutes" et le multiplie par 60000 pour le convertir en m-s;
+	let secToMs = gId("secondes").value*1000;        //récupère le champ "secondes" et le multiplie par 1000 pour le convertir en m-s;
+	let ms = gId("ms").value;                        //récupère le champ "ms";
+	let tempsMs = minToMs + secToMs + Number(ms);    // addition des 3 valeurs en m-s;
+	                            
+	return tempsMs;                                  //retourne le resultat;
 };
 
 function name(){
@@ -34,12 +35,14 @@ function name(){
 	return name;
 };
 
-function myFunction(){
-	getTime();
-	event.preventDefault();
+function myFunction(){            // Soumission du formulaire
+
+	getTime();                                         
+	event.preventDefault();                                
+
 	    let xhr = new XMLHttpRequest();
-	    xhr.open('GET', 'http://localhost/insertData?name='
-	        + gId("formTemps").name.value 
+	    xhr.open('GET', 'http://localhost/insertData?name='                      // appel au webservice
+	        + gId("formTemps").name.value                                       // récupération des valeurs entrées dans le formulaire
 	        + '&firstname='
 	        + gId("formTemps").firstname.value
 	        + '&naissance='
@@ -56,15 +59,15 @@ function myFunction(){
 	        + getTime(),
 	        true);
 
-	xhr.onload = function check() {
-	    gId("zoneTexte").innerHTML = message;
-	    console.log("ok");
+	xhr.onload = function check() {                 
+	    gId("zoneTexte").innerHTML = message;                //le message s'affiche 
+	                                                         //les valeurs ont été introduites dans la base de données
 	};
 
 	xhr.send();
 
 	console.log("fait aussi");
-	let message = "<p>votre record a bien été enregistré</p>";
+	let message = "<p>votre record a bien été enregistré</p>";         // création d'un message de confimation dès que la requête est correctement exécutée
 };
 
 
@@ -87,7 +90,7 @@ function envoyerRequete(circuit, categorie){
     xhr.send();
 };
 
-function affichage(data){
+function affichage(data){                                       
     let str = "<table id='tableauRecords'>";
     str += "<tr>";
     str += "<th><i>localisation</i></th>";
